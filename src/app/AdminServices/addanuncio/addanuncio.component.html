@@ -1,0 +1,16 @@
+<div class="col-md-4 offset-md-4"><br><br>
+        <div class="card">
+                <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">Datos del anuncio</div>
+          <div class="card-body">
+            <form action="">
+              <div class="form-group">
+                <textarea type="text" name="title" [(ngModel)]="anuncio.texto" rows="2" placeholder="Texto" class="form-control" autofocus></textarea>
+              </div>
+            
+              <button class="btn btn-success btn-block" (click)="edit ? updateAnuncio() : saveAnuncio()">
+                Guardar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>

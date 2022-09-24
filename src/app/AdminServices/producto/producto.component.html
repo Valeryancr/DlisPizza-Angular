@@ -1,0 +1,26 @@
+<div class="container"><br>
+    <div class="d-flex justify-content-between align-items-center">
+            <h2>Productos Disponibles</h2>
+        <a routerLink="/admin-dashboard/productos/add"> <button class="btn btn-success"><i class="fas fa-plus"></i>  Agregar</button></a>
+    </div>
+    <br>
+    
+<div class="row">
+<div class="col-md-4" style="margin-bottom:20px" *ngFor="let producto of productos">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            Producto: {{producto.idproductos}}<button class="btn btn-danger" (click)="deleteProducto(producto.idproductos)"><i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <div class="card-body">
+                <p>Precio Unitario Q{{producto.precio}} </p>
+                <p>Nombre: {{producto.nombre}}</p>
+                <p>  {{producto.descripcion}}</p>
+                <div class="center"><img style="max-height: 200px; max-width: 200px; display: block; margin-left: auto; margin-right: auto;" class="card-img-top" [src]="producto.imagen"> </div>
+                
+                <a [routerLink]="['/admin-dashboard/productos/edit/', producto.idproductos]" class="btn btn-info btn-block"> Modificar </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

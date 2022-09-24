@@ -1,0 +1,22 @@
+<div class="container"><br>
+    <div class="d-flex justify-content-between align-items-center">
+            <h2>Usuarios actuales</h2>
+            <a routerLink="/admin-dashboard/usuarios/add"> <button class="btn btn-success"><i class="fas fa-user-plus"></i>  Agregar</button></a>
+        </div>
+        <br>
+<div class="row">
+<div class="col-md-4" style="margin-bottom:20px" *ngFor="let user of users">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            Usuario: {{user.username}} <button class="btn btn-danger" (click)="deleteUser(user.userId)"><i class="far fa-trash-alt"></i>
+            </button>
+        </div>
+        <div class="card-body">
+            <p>{{user.nombre}} {{user.apellido}}<p>
+                <a [routerLink]="['/admin-dashboard/usuarios/edit/', user.userId]" class="btn btn-info btn-block"> <i class="fas fa-user-cog"> </i> Modificar </a>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>

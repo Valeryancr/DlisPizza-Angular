@@ -1,0 +1,57 @@
+<br>
+<div class="row">
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">Datos personales
+                </div>
+        <div class="card-body">
+                <form>
+                <div class="form-group">
+                    <input type="email" name="correo" [(ngModel)]="user.correo" placeholder="Correo electrónico" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" [(ngModel)]="user.username" placeholder="Nombre de Usuario" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="nombre" [(ngModel)]="user.nombre" placeholder="Nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="apellido" [(ngModel)]="user.apellido" placeholder="Apellido" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" required [(ngModel)]="password" placeholder="Contraseña" class="form-control">
+                </div>
+                <div class="form-group">
+                        <input type="password" name="confirmpassword" required [(ngModel)]="password1" placeholder="Confirmar contraseña" class="form-control">
+                    </div>
+                <div class="form-group">
+                    <input type="text" name="phone" [(ngModel)]="user.telefono" placeholder="Teléfono" class="form-control">
+                </div>
+            </form>
+        </div>  
+    </div>
+</div>
+    <div class="col-md-3">
+            <div class="card">
+                    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">Direcciones</div>
+                    <div class="card-body">
+                            <form [formGroup]="miFormulario">
+                            <button class="btn btn-success btn-block" (click)="addDireccion()"><i class="fas fa-home-square-alt"></i> Agregar dirección</button><br>
+                            <div class="form-group">
+                                <div formArrayName="direccion">
+                                    <div *ngFor="let item of getDirecciones.controls; let i = index;" [formGroupName]="i"> 
+                                            <div class="d-flex justify-content-between" align-items-center>
+                                        <input formControlName="direccion" placeholder= "Direccion"> <input type="hidden" formControlName="idDireccion"/>
+                                        <button class="btn btn-danger" (click)="removeDireccion(i)"> <i class="far fa-trash-alt"></i></button></div><br>
+                                </div></div></div>
+                            </form>     
+                    </div> 
+                </div>
+            </div>
+    <div class="container">
+            <div class="col-md-6 offset-md-2"> 
+                <br>
+        <button class="btn btn-success btn-block" (click)="edit ? updateUser() : passwordMatch()">Guardar</button></div>
+    </div>
+</div>
+<!-- <input type="text" name="phone" [(ngModel)]="vendedora.telefono[i].numero" placeholder="Numero" class="form-control"> --> 

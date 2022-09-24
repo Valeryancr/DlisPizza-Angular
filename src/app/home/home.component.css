@@ -1,0 +1,26 @@
+.marquee {
+    height: 60px;
+    width: 1250px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .marquee div {
+    display: block;
+    width: 200%;
+    height: 60px;
+    position: absolute;
+    animation: marquee 30s linear infinite;
+    margin: 0;
+    transform:translateX(1%);
+  }
+  
+  .marquee span {
+    width: 30%;
+    display: inline-block;
+  }
+  
+  @keyframes marquee {
+    0%   {transform: translateX(50%); }
+    100% {transform: translateX(-50%); }
+   }

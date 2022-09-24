@@ -1,0 +1,36 @@
+<div class="container"><br>
+        <div class="d-flex justify-content-between align-items-center">
+                <h2>Mi cuenta</h2> 
+                <a routerLink="/home/cuenta/pedidos"><button class="btn btn-info"><i class="fas fa-user"> </i>  Pedidos </button></a>
+        </div>
+        <br>
+<div class="row">
+<div class="col-md-6 offset-md-1">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white align-items-center">
+            Nombre: {{user.nombre}}   {{user.apellido}}
+        </div>
+        <div class="card-body">
+            <p>Correo: {{user.correo}}<p>
+            <p>Nombre de usuario: {{user.username}}<p>
+            <p>Telefono: {{user.telefono}}<p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-header bg-dark text-white align-items-center">
+                Direcciones
+            </div>
+            <div class="card-body" *ngFor="let direccion of user.direccion">
+                Direccion: {{direccion.direccion}}
+            </div>
+        </div>
+    </div>
+
+</div><br>
+<div class="col-md-4 offset-md-4">
+        <div class="card text-center"><a [routerLink]="['/home/cuenta/edit/', user.userId]"> <button class="btn btn-success btn-block"><i class="fas fa-user-cog"> </i>  Modificar</button></a>
+</div></div>
+</div>

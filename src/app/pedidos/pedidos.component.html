@@ -1,0 +1,22 @@
+<div class="container"><br>
+    <h2>Tus pedidos</h2>
+    <br>
+<div class="row">
+    <div class="col-md-4" style="margin-bottom:20px" *ngFor="let pedido of pedidos">
+        <div class="card text-left">
+            <div class="card-header bg-dark text-white align-items-center">
+                Entregado
+            </div>
+            <div class="card-body">
+                <p>Fecha de entrega: {{pedido.fecha}}<p>
+                <p>Monto total: {{pedido.total | currency:'GTQ'}}<p>
+                    <h6>Productos</h6><hr style="width:100%">
+                    <div *ngFor="let producto of pedido.productospedidos">
+                        <p>{{producto.pnombre}}: Costo Unitario  {{producto.pcosto| currency:'GTQ'}}</p>
+                        <ul>Cantidad: {{producto.cantidad}} Monto: {{producto.subtotal | currency:'GTQ'}}</ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <div *ngIf="proyectoService.cartEmpty()" class="col-md-6 offset-md-3 text-center">
+        <br><br><h5>Su carrito se encuentra vacío.</h5><br>
+        <img alt="image" style="height: 80%; width: 80%; display: center-block;" src="https://i.ibb.co/Xyk1Mvf/toppng-com-sign-in-empty-cart-ico-414x234.png"/><br><br>
+        <a routerLink='/home'> <button class="btn btn-info btn-block"><i class="fas fa-shopping-cart"> </i>  Seguir comprando</button></a>
+    </div><br>
+    <div *ngIf="proyectoService.cartnEmpty()"class="col-md-4 card text-center offset-md-4"> 
+        <br>
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">Resumen</div>
+                <div class="card-body "> 
+                    <div  *ngFor="let cart of carrito" >
+                    {{cart.pnombre}}  -  {{cart.pcostot | currency:'GTQ'}}
+                    </div>
+                     <hr style="width:40%">
+                    Total: {{total| currency:'GTQ'}}<br>
+                </div>
+                <a routerLink="/home/cart/revisar"><button class="btn btn-info btn-block">Confirmar y revisar</button></a>
+            </div>
+
+        <div class="col-md-8 offset-md-2" *ngFor="let cart of carrito; let i = index;">
+            <br>
+                <div class="card text-center">
+                    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                        Producto: {{cart.pnombre}}  -  {{cart.pcosto| currency:'GTQ'}} 
+                        <div class="text-right">
+                            <button class="btn" (click)="decreaseAmount(i)"><i class="far fa-minus-square"></i></button>
+                                 {{cart.cantidad}} 
+                            <button class="btn " (click)="increaseAmount(i)"><i class="far fa-plus-square"></i></button>
+                        </div>
+                </div>
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="center"><img style="max-height: 200px; max-width: 200px; display: block; margin-left: auto; margin-right: auto;" class="card-img-top" [src]="producto.imagen"> </div>    
+                    <p>  {{cart.descripcion}}</p>
+                    <div class="card-body d-flex justify-content-between align-items-center"><p>Sub-total: {{cart.pcostot | currency:'GTQ'}}</p> </div>
+                    <button class="btn btn-danger" (click)="deleteCart(i)"><i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+</div>

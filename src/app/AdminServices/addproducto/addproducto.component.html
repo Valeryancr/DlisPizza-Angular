@@ -1,0 +1,48 @@
+<div class="row">
+<div class="col-md-4 offset-md-2"><br><br>
+        <div class="card">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">Datos del producto
+                </div>
+            <div class="card-body">
+                <form action="">
+                    
+                    <div class="form-group">
+                        <label>Nombre del producto</label>
+                        <input type="text" name="nombre" [(ngModel)]="producto.nombre" placeholder="Nombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea type="text" name="descripcion" [(ngModel)]="producto.descripcion" placeholder="Descripción" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Costo Unitario</label>
+                        <input type="text" name="money" [(ngModel)]="producto.precio" placeholder="Costo unitario" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <textarea type="url" name="imagen" [(ngModel)]="producto.imagen" placeholder="URL de la Imagen del producto" class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-success btn-block" (click)="edit ? updateProducto() : saveProducto()">
+                            Guardar
+                          </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3"><br><br>
+        <h4 style="text-align: center;">Vista Previa</h4>
+        <div class="card text-center">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                Producto: {{producto.nombre}} 
+            </div>
+            <div class="card-body">
+                <h5 class="card-subtitle text muted"> {{producto.precio| currency:'GTQ'}} </h5>
+            </div>
+            <img class="card-img-top" [src]="producto.imagen">
+            <div class="card-body">
+                    <p>  {{producto.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+</div>

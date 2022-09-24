@@ -1,0 +1,31 @@
+<div class="container" *ngIf="proyectoService.dialogT == 1">
+    <div class="alert alert-dismissible alert-primary">
+        <strong><i class="fa fa-check-circle"></i> ¡Producto agregado con éxito!</strong>
+    </div><br>
+    <div class="container" cdkFocusInitial style="margin-bottom:20px">
+        <h3 mat-dialog-title>{{datos.nombre}}</h3>
+        <div mat-dialog-content>
+            <p>{{datos.descripcion}}</p><br>
+        </div>
+        <div mat-dialog-actions>
+        <button class="btn btn-secondary" style="margin:20px" (click)="onNoClick()"> Seguir comprando </button>
+        <a routerLink="/home/cart"> <button style="margin:20px" class="btn btn-info" (click)="onNoClick()"> Ver carrito</button> </a>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="proyectoService.dialogT == 2">
+    <div class="alert alert-dismissible alert-danger">
+        <strong><i class="fa fa-exclamation-triangle"></i> Se ha eliminado el producto.</strong>
+    </div>
+        <div mat-dialog-actions>
+        <button mat-button class="btn btn-secondary" (click)="onNoClick()"> Continuar </button>
+        </div>
+</div>
+<div class="container" *ngIf="proyectoService.dialogT == 3">
+    <div class="alert alert-dismissible alert-danger">
+        <strong><i class="fa fa-exclamation-triangle"></i> Se ha eliminado al vendedor.</strong>
+    </div>
+        <div mat-dialog-actions>
+        <button mat-button class="btn btn-secondary" (click)="onNoClick()"> Continuar </button>
+        </div>
+</div>

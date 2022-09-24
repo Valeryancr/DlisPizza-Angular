@@ -1,0 +1,15 @@
+<div class="container"><br>
+  <div class="col-md-6 offset-md-3"> 
+    <div class="card text-center">
+  <br><br><h1>Iniciar sesión</h1>
+      <div class="card-body"> 
+        <form class="form">
+          <div class="form-group">
+          <input type="text" name="Usuario" [(ngModel)]="username" required placeholder="Usuario" class="form-control"></div><br>
+          <div class="form-group"> <input type="password" name="Contraseña" [(ngModel)]="password" required placeholder="Contraseña" class="form-control"></div><br>
+          <button class="btn btn-info btn-block"(click)=checkLogin() type="submit" id="login-button">Iniciar sesión</button>
+        </form>
+      </div>
+    </div>
+  </div> 
+</div>
