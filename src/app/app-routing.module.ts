@@ -17,6 +17,8 @@ import { PedidosComponent} from './pedidos/pedidos.component'
 import { CarritoComponent } from './carrito/carrito.component'
 import { RevisarComponent } from './revisar/revisar.component'
 import { OngoingComponent } from './AdminServices/pedidos/ongoing/ongoing.component';
+import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
+import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent, canActivate:[AuthGaurdService]},
@@ -37,7 +39,9 @@ const routes: Routes = [
   {path: 'home/cart', component:CarritoComponent,canActivate:[AuthGaurdService]},
   {path: 'home/cuenta/edit/:id', component:AdduserComponent, canActivate:[AuthGaurdService]},
   {path: 'home/cart/revisar', component:RevisarComponent,canActivate:[AuthGaurdService]},
-  {path: 'admin-dashboard/pedidos', component:OngoingComponent, canActivate:[AuthGaurdService]}
+  {path: 'admin-dashboard/pedidos', component:OngoingComponent, canActivate:[AuthGaurdService]},
+  {path: 'crearCuenta', component:CrearCuentaComponent},
+  {path: 'recuperarPass', component:RecuperarPassComponent}
 ];
 
 @NgModule({

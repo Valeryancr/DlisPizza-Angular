@@ -38,6 +38,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
+import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AddproductoComponent,
     RevisarComponent,
     MyDialogComponent,
-    OngoingComponent
+    OngoingComponent,
+    CrearCuentaComponent,
+    RecuperarPassComponent
   ],
   imports: [
     BrowserModule,

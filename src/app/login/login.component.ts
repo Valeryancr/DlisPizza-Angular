@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   password = ""
   invalidLogin = false
   hide = true;
+  olvidar = false;
 
   constructor(private router: Router, private loginservice: AuthenticationService) { }
 
@@ -25,7 +26,6 @@ export class LoginComponent implements OnInit {
   checkLogin() {
     console.log(this.username);
     console.log(this.password);
-
     this.loginservice.authenticate(this.username, this.password);
     } 
 } 
