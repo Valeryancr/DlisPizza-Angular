@@ -31,6 +31,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { OngoingComponent } from './AdminServices/pedidos/ongoing/ongoing.component'
 
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +74,14 @@ import { OngoingComponent } from './AdminServices/pedidos/ongoing/ongoing.compon
     BrowserAnimationsModule,
     ChartsModule,
     AlertsModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatDividerModule,
+    MatSliderModule,
+    MatGridListModule,
+    MatCardModule,
+    MatCheckboxModule,
+
   ],
   providers: [
     ProyectopService

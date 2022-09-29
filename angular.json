@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "ProyectoProgra"
+  "defaultProject": "ProyectoProgra",
+  "cli": {
+    "analytics": false
+  }
 }

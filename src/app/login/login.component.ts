@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   username = ""
   password = ""
   invalidLogin = false
+  hide = true;
 
   constructor(private router: Router, private loginservice: AuthenticationService) { }
 
