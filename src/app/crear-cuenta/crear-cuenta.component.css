@@ -1,0 +1,49 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-card {
+    max-width: 400px;
+    margin: 2% auto 2%;
+  }
+
+  .marge {
+    margin: auto;
+  }
+  
+  .example-header-image {
+    background-image: url('D:/Documents/Programas/Angular/Seminario/app-pizzeriaa/appPizzeria/src/assets/images/logo.jpg');
+    background-size: cover;
+  }
+ 
+  .center{
+    display: flex;
+    justify-content: center;
+  }
+
+  .center2 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .enlace {
+    color: black;
+    text-decoration: none;
+  }
+
+  .enlace:hover{
+    color: darkblue;
+    text-decoration: underline;
+  }
+
+  .center3{
+    display: flex;
+    justify-content: space-evenly;
+  }
