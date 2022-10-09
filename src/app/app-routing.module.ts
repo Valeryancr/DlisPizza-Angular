@@ -23,7 +23,7 @@ import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.componen
 const routes: Routes = [
   {path:'home',component:HomeComponent, canActivate:[AuthGaurdService]},
   {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent},
+  {path: '', component: LogoutComponent},
   {path:'admin-dashboard', component:AdminDashboardComponent, canActivate:[AuthGuardAdminService]},
   {path:'admin-dashboard/usuarios', component:UsuariosComponent, canActivate:[AuthGuardAdminService]},
   {path:'admin-dashboard/usuarios/edit/:id', component:AdduserComponent, canActivate:[AuthGuardAdminService]},

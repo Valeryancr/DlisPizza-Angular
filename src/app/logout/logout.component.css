@@ -1,0 +1,48 @@
+.marquee {
+    height: 60px;
+    width: 1250px;
+    overflow: hidden;
+    position: relative;
+  } */
+  
+  .marquee div {
+    display: block;
+    width: 200%;
+    height: 60px;
+    position: absolute;
+    animation: marquee 30s linear infinite;
+    margin: 0;
+    transform:translateX(1%);
+  }
+  
+  .marquee span {
+    width: 30%;
+    display: inline-block;
+  }
+  
+  @keyframes marquee {
+    0%   {transform: translateX(50%); }
+    100% {transform: translateX(-50%); }
+   }
+
+   /* .products--grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media screen and (min-width: 40em) {
+      .products--grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+      }
+  }
+  
+  @media screen and (min-width: 62em) {
+    .products--grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 10px;
+    }
+  }
+   */

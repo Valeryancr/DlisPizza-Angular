@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectopService } from '../service/proyectop.service';
 import { Router } from '@angular/router';
+import { CuentaComponent } from '../cuenta/cuenta.component';
 
 @Component({
   selector: 'app-revisar',
@@ -14,13 +15,19 @@ export class RevisarComponent implements OnInit {
     productospedidos:[]
   };
   producto:any=[];
+  user:any=[];
+ 
   constructor(private proyectoService: ProyectopService,private route:Router) { }
 
   ngOnInit() {
-    let user=localStorage.getItem('username')
     this.carrito=this.proyectoService.getCart();
     this.getCartT();
+    this.user = JSON.parse(localStorage.getItem("cuenta"));
+    console.log(this.user.direccion);
+    console.log(this.compra);
   }
+
+  
 
   getCartT(){
     this.total=0;

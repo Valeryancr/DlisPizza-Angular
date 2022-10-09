@@ -40,7 +40,8 @@ export class AuthenticationService {
       alert("No existe una cuenta para el usuario ");
     } else {
     if (password===this.usuario.password || username === "admin" && password === "Adminmod123") {
-      localStorage.setItem('username', this.usuario.userId)
+      localStorage.setItem('username', this.usuario.userId);
+      localStorage.setItem('cuenta', JSON.stringify(this.usuario));
       if(username==='admin'){
         location.href='admin-dashboard';
       }

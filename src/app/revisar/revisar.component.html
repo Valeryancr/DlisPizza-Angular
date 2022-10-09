@@ -1,29 +1,50 @@
-<div class="container"><br>
-    <div class="row">
-        <div class="col-md-5 card text-center"> <br>
-            <div class="card-header bg-dark text-white align-items-center">Resumen</div>
-                <div class="card-body align-items-center"> 
-                    <div  *ngFor="let cart of carrito">
-                        {{cart.pnombre}} Qty {{cart.cantidad}} ......... {{cart.pcostot | currency:'GTQ'}}
-                    </div>
-                     <hr style="width:60%">
-                    Total: {{total| currency:'GTQ'}}<br>
-                </div>
-            </div>
-            <div class="col-md-6 card text-center offset-md-1"> <br>
-                <div class="card-header bg-dark text-white align-items-center">Datos pedido</div>
-                    <div class="card-body"> 
-                        <form>
-                            <div class="form-group text-left">
-                                Fecha de entrega:
-                                <input type="date" name="date" [(ngModel)]="compra.fecha" placeholder="Fecha de entrega" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="address" [(ngModel)]="compra.direccionEntrega" placeholder="Direccion de entrega" class="form-control">
-                            </div>
-                        </form>
-                        <button class="btn btn-info btn-block" (click)="agregarPedido()">Realizar pedido</button>
-                    </div>
-                </div>
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col-md-5 card text-center">
+      <br />
+      <div class="card-header bg-dark text-white align-items-center">
+        Resumen
+      </div>
+      <div class="card-body align-items-center">
+        <div *ngFor="let cart of carrito">
+          {{ cart.pnombre }} Qty {{ cart.cantidad }} .........
+          {{ cart.pcostot | currency: "GTQ" }}
+        </div>
+        <hr style="width: 60%" />
+        Total: {{ total | currency: "GTQ" }}<br />
+      </div>
     </div>
+    <div class="col-md-6 card text-center offset-md-1">
+      <br />
+      <div class="card-header bg-dark text-white align-items-center">
+        Datos pedido
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group text-left">
+            Fecha de entrega:
+            <input
+              type="date"
+              name="date"
+              [(ngModel)]="compra.fecha"
+              placeholder="Fecha de entrega"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group text-left">
+            Dirección de entrega:
+            <select [(ngModel)]="compra.direccionEntrega" [ngModelOptions]="{standalone: true}" class="form-control" >
+              <option [value]="dir.direccion" *ngFor="let dir of user.direccion">
+                {{ dir.direccion }}
+              </option>
+            </select>
+          </div>
+        </form>
+        <button class="btn btn-info btn-block" (click)="agregarPedido()">
+          Realizar pedido
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
