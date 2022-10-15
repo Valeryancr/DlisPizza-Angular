@@ -1,0 +1,34 @@
+<div class="container-fluid" style="margin-top: 80px;">
+    <h1 style="text-align: center;">Historico de ordenes</h1>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Direccion de entrega</th>
+                <th scope="col">Total</th>
+                <th scope="col">Detalles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedido of pedidos">
+                <th scope="row">{{pedido.fecha}}</th>
+                <ng-container *ngFor="let us of users">
+                <td *ngIf="pedido.usuarioUserId === us.userId">{{us.username}}</td>
+                <td *ngIf="pedido.usuarioUserId === us.userId">{{us.nombre}} {{us.apellido}}</td>
+                </ng-container>
+                <td *ngIf="pedido.completed === true">Entregado</td>
+                <td *ngIf="pedido.completed === false" style="background-color: red; color: white;">Pendiente</td>
+                <td>{{pedido.direccionEntrega}}</td>
+                <td>Q. {{pedido.total}}</td>
+                <select class="custom-select" id="inputGroupSelect01" style="margin-top: 5px;">
+                    <option *ngFor="let producto of pedido.productospedidos">({{producto.cantidad}}) {{producto.pnombre}}</option>
+                </select>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
