@@ -64,6 +64,7 @@ isValidPass(){
   saveUser(){
     this.user.direccion=this.miFormulario.value.direccion;
     this.user.password=this.password;
+    console.log(this.user);
     this.userService.saveUser(this.user).subscribe(
       res=>{
         this.usuarioCreado(res);

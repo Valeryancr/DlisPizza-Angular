@@ -19,7 +19,7 @@
   }
   
   .example-header-image {
-    background-image: url('D:/Documents/Programas/Angular/Seminario/app-pizzeriaa/appPizzeria/src/assets/images/logo.jpg');
+    background-image: url('../../assets/images/logo.jpg');
     background-size: cover;
   }
  

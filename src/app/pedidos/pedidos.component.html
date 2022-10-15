@@ -4,8 +4,11 @@
 <div class="row">
     <div class="col-md-4" style="margin-bottom:20px" *ngFor="let pedido of pedidos">
         <div class="card text-left">
-            <div class="card-header bg-dark text-white align-items-center">
+            <div class="card-header bg-info text-white align-items-center" *ngIf="pedido.completed === true" style="text-align: center;">
                 Entregado
+            </div>
+            <div class="card-header bg-danger text-white align-items-center" *ngIf="pedido.completed === false" style="text-align: center;">
+                En proceso...
             </div>
             <div class="card-body">
                 <p>Fecha de entrega: {{pedido.fecha}}<p>

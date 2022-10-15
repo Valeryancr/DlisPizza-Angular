@@ -1,11 +1,12 @@
-<div class="container"><br>
+<div class="container" style="margin-top: 40px;"><br>
     <h2>Pedidos</h2>
     <br>
   <div class="row">
-    <div class="col-md-4" style="margin-bottom:20px" *ngFor="let pedido of pedidos">
+    <ng-container *ngFor="let pedido of pedidos">
+    <div id="pedido" class="col-md-4" style="margin-bottom:20px" *ngIf="pedido.completed === false">
         <div class="card text-left">
             <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                Pedido Nuevo <a class="text-white"><button class="btn btn-info btn-block" onclick="this.blur();"> Completar <i class="fas fa-check-circle"></i> </button></a>
+                Pedido Nuevo <a class="text-white"><button class="btn btn-info btn-block" onclick="this.blur();" (click)="completeP(pedido);"> Completar <i class="fas fa-check-circle"></i> </button></a>
             </div>
             <div class="card-body">
                 <p>Fecha de entrega: {{pedido.fecha}}<p>
@@ -17,6 +18,8 @@
                     </div>
             </div>
         </div>
+       </div>
+    </ng-container>
+    
     </div>
-  </div>
-  </div>
+</div>

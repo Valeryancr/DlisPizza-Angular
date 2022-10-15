@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './AdminServices/admin-dashboard/admin-dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UsuariosComponent } from './AdminServices/usuarios/usuarios.component';
@@ -37,9 +37,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.component';
+import { AllPedidosComponent } from './AdminServices/pedidos/all-pedidos/all-pedidos.component';
+
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.componen
     MyDialogComponent,
     OngoingComponent,
     CrearCuentaComponent,
-    RecuperarPassComponent
+    RecuperarPassComponent,
+    AllPedidosComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -54,7 +54,7 @@ export class RevisarComponent implements OnInit {
     let user=localStorage.getItem('username')
     this.compra.usuarioUserId=user;
     this.compra.total=this.total;
-    this.compra.completed=1;
+    this.compra.completed=0;
     this.compra.domicilio="Y";
     this.configObject();
   }

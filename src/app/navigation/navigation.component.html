@@ -1,6 +1,7 @@
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">D'liz Pizza</a>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #005f73;">
+    <a *ngIf="loginservice.isAdminLoggedIn()" routerLink="/admin-dashboard/productos" class="navbar-brand">D'liz Pizza</a>
+    <a *ngIf="loginservice.isUserLoggedIn() && loginservice.isNotAdminLoggedIn()" routerLink="/home" class="navbar-brand">D'liz Pizza</a>
+    <a *ngIf="loginservice.isNobodyLoggedIn()" routerLink="/"  class="navbar-brand">D'liz Pizza</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -20,12 +21,15 @@
       </li>
       <li class="nav-item">
         <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/pedidos">Pedidos <i class="fas fa-shopping-bag"></i> </a>
-</li>
+      </li>
         <li class="nav-item">
                 <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/usuarios">Usuarios <i class="fas fa-user-circle"></i> </a>
         </li>
         <li class="nav-item">
             <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/productos"> Productos <i class="fab fa-product-hunt"></i></a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/Allpedidos">Historial Pedidos <i class="fas fa-shopping-bag"></i> </a>
         </li>
         <li class="nav-item">
             <a *ngIf="loginservice.isUserLoggedIn()" class="nav-link" routerLink="/">Cerrar sesión</a>

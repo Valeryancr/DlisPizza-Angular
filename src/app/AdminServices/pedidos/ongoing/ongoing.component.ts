@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { ProyectopService } from 'src/app/service/proyectop.service';
+import { ResourceLoader } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-ongoing',
@@ -51,6 +53,28 @@ export class OngoingComponent implements OnInit, OnDestroy, AfterViewInit {
         this.pedidos = res;
       },
       err=>console.error(err)
+    )
+  }
+
+  completeP(pedido: any){
+    let pedidoC : any = {
+        domicilio: pedido.domicilio,
+        total: pedido.total,
+        fecha: pedido.fecha,
+        completed: true,
+        productospedidos: pedido.productospedidos,
+        compraId: pedido.compraId,
+        usuarioUserId: pedido.usuarioUserId,
+        direccionEntrega: pedido.direccionEntrega
+    } 
+
+    console.log(pedido.productospedidos)
+    this.proyectoService.savePedido(pedidoC).subscribe(
+      res => { 
+        console.log(res);
+        window.location.reload();
+      },
+      err => console.error(err)
     )
   }
 
