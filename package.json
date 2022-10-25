@@ -27,6 +27,7 @@
     "chart.js": "^2.9.3",
     "event-source-polyfill": "^1.0.15",
     "jquery": "~3.4.1",
+    "mat-table-exporter": "^10.2.4",
     "ng2-charts": "^2.3.2",
     "rxjs": "^6.5.5",
     "tslib": "^2.0.0",

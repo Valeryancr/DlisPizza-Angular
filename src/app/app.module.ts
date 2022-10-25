@@ -31,7 +31,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
 import { OngoingComponent } from './AdminServices/pedidos/ongoing/ongoing.component'
 
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableExporterModule } from 'mat-table-exporter';
+import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
@@ -41,6 +43,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { RecuperarPassComponent } from './recuperar-pass/recuperar-pass.component';
 import { AllPedidosComponent } from './AdminServices/pedidos/all-pedidos/all-pedidos.component';
+
 
 
 
@@ -89,7 +92,10 @@ import { AllPedidosComponent } from './AdminServices/pedidos/all-pedidos/all-ped
     MatGridListModule,
     MatCardModule,
     MatCheckboxModule,
-
+    MatTableModule,
+    MatTableExporterModule,
+    MatPaginatorModule,
+   
   ],
   providers: [
     ProyectopService

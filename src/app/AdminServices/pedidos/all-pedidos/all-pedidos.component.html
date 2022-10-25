@@ -1,34 +1,89 @@
-<div class="container-fluid" style="margin-top: 80px;">
-    <h1 style="text-align: center;">Historico de ordenes</h1>
-    <div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col">Usuario</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Direccion de entrega</th>
-                <th scope="col">Total</th>
-                <th scope="col">Detalles</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let pedido of pedidos">
-                <th scope="row">{{pedido.fecha}}</th>
-                <ng-container *ngFor="let us of users">
-                <td *ngIf="pedido.usuarioUserId === us.userId">{{us.username}}</td>
-                <td *ngIf="pedido.usuarioUserId === us.userId">{{us.nombre}} {{us.apellido}}</td>
-                </ng-container>
-                <td *ngIf="pedido.completed === true">Entregado</td>
-                <td *ngIf="pedido.completed === false" style="background-color: red; color: white;">Pendiente</td>
-                <td>{{pedido.direccionEntrega}}</td>
-                <td>Q. {{pedido.total}}</td>
-                <select class="custom-select" id="inputGroupSelect01" style="margin-top: 5px;">
-                    <option *ngFor="let producto of pedido.productospedidos">({{producto.cantidad}}) {{producto.pnombre}}</option>
-                </select>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+<!-- Cajon de exportacion a archivo -->
+<div class="cajon">
+<div class="export">
+<button mat-raised-button style="height: 60px;" color="primary" (click)="exporter.exportTable(tipoExport)">Exportar</button>
+<mat-form-field appearance="fill">
+  <mat-label>Tipo de archivo</mat-label>
+  <mat-select name="exportarA" id="exportarA" [(ngModel)]="tipoExport" style="z-index: 111111;">
+    <mat-option  value='csv'>csv</mat-option>   
+    <mat-option  value='txt'>texto</mat-option>
+    <mat-option  value='xlsx'>excel</mat-option>
+    <mat-option  value='json'>json</mat-option> 
+  </mat-select>
+</mat-form-field>
+</div>
+
+<!-- Tabla de pedidos -->
+<div class="mat-elevation-z8" >
+  <br><h1 style="text-align: center;">Historico de ordenes</h1><hr>
+  <table mat-table matTableExporter [dataSource]="dataSource" #exporter="matTableExporter">
+
+    <!-- Columna idCompra -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.compraId}} </td>
+    </ng-container>
+
+    <!-- Columna fecha -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    </ng-container>
+
+    <!-- Columna usuario -->
+    <ng-container matColumnDef="usuarioUserId">
+      <th mat-header-cell *matHeaderCellDef> Usuario </th>
+      <ng-container *matCellDef="let element">
+        <ng-container *ngFor="let us of users">
+          <td mat-cell *ngIf="element.usuarioUserId === us.userId">{{us.username}} </td>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <!-- Columna usuario -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <ng-container *matCellDef="let element">
+        <ng-container *ngFor="let us of users">
+          <td mat-cell *ngIf="element.usuarioUserId === us.userId">{{us.nombre}} {{us.apellido}} </td>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+ 
+     <!-- Comulna estado -->
+     <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <ng-container *matCellDef="let element">
+        <td mat-cell  *ngIf="element.completed === true">Entregado</td>
+        <td mat-cell  *ngIf="element.completed === false" style="background-color: red; color: white;">Pendiente</td>
+      </ng-container>
+    </ng-container>
+
+     <!-- Columna direccion -->
+     <ng-container matColumnDef="direccionEntrega">
+      <th mat-header-cell *matHeaderCellDef> Direccion </th>
+      <td mat-cell *matCellDef="let element"> {{element.direccionEntrega}} </td>
+    </ng-container>
+
+    <!-- Columna total -->
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Total </th>
+      <td mat-cell *matCellDef="let element">{{element.total}}</td>
+    </ng-container>
+
+    <!-- Columna detalles -->
+    <!-- <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Total </th>
+      <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- Paginador -->
+  <mat-paginator
+  [pageSizeOptions]="[5, 10, 25]"
+  showFirstLastButtons>
+  </mat-paginator>
+</div>
 </div>
