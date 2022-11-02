@@ -26,7 +26,7 @@ export class AdduserComponent implements OnInit {
   
 
     this.miFormulario=this.fb.group({
-       direccion: this.fb.array([this.fb.group({direccion: [''],idDireccion:['']})])
+       direccion: this.fb.array([this.fb.group({direccion: [''], lugarTipo: [''], idDireccion:['']})])
     });
     
     const params= this.ActiveRoute.snapshot.params;
@@ -110,14 +110,14 @@ isValidPass(){
     const control = <FormArray>this.miFormulario.controls['direccion'];
     control.removeAt(0);
      for(var i=0;i<user.direccion.length;i++){
-      control.push(this.fb.group({direccion:user.direccion[i].direccion, idDireccion:user.direccion[i].idDireccion}));
+      control.push(this.fb.group({direccion:user.direccion[i].direccion, lugarTipo:user.direccion[i].lugarTipo, idDireccion:user.direccion[i].idDireccion}));
     }
   }
 
   addDireccion(){
-    console.log()
+    console.log(this.miFormulario)
     const control = <FormArray>this.miFormulario.controls['direccion'];
-    control.push(this.fb.group({direccion:[], idDireccion:[]}));
+    control.push(this.fb.group({direccion:[], lugarTipo:[], idDireccion:[]}));
   }
 
   removeDireccion(index:number){

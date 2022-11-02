@@ -30,15 +30,30 @@
               [(ngModel)]="compra.fecha"
               placeholder="Fecha de entrega"
               class="form-control"
+              min="2022-10-29"
             />
           </div>
           <div class="form-group text-left">
             Dirección de entrega:
-            <select [(ngModel)]="compra.direccionEntrega" [ngModelOptions]="{standalone: true}" class="form-control" >
+            <select [(ngModel)]="compra.direccionEntrega" [ngModelOptions]="{standalone: true}" class="form-control">
               <option [value]="dir.direccion" *ngFor="let dir of user.direccion">
-                {{ dir.direccion }}
-              </option>
+                {{dir.lugarTipo}}: {{dir.direccion}} 
+              </option>             
             </select>
+            
+            <!-- <div class="input-group mb-3">
+              
+              <div class="input-group-prepend" >
+                <input type="text" [value]="user.direccion[1].direccion">
+              </div>
+            
+              <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="valorOption" [ngModelOptions]="{standalone: true}">
+                <option selected disabled>Lugar...</option>
+                <option value="1">Casa</option>
+                <option value="2">Trabajo</option>
+                <option value="3">Otro</option>
+              </select>
+            </div> -->
           </div>
         </form>
         <button class="btn btn-info btn-block" (click)="agregarPedido()">

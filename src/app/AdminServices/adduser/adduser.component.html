@@ -40,8 +40,15 @@
                             <div class="form-group">
                                 <div formArrayName="direccion">
                                     <div *ngFor="let item of getDirecciones.controls; let i = index;" [formGroupName]="i"> 
-                                            <div class="d-flex justify-content-between" align-items-center>
-                                        <input formControlName="direccion" placeholder= "Direccion"> <input type="hidden" formControlName="idDireccion"/>
+                                        <div class="d-flex justify-content-between" align-items-center>
+                                        <input formControlName="direccion" placeholder= "Direccion"> 
+                                        <input formControlName="lugarTipo" placeholder= "Etiqueta" style="width: 95px;">
+                                        <!-- <select formControlName="direccion" name="tipo" id="tipo" >
+                                            <option value="c">Casa</option>
+                                            <option value="t">Trabajo</option>
+                                            <option value="o">Otro</option>
+                                        </select> -->
+                                        <input type="hidden" formControlName="idDireccion"/>
                                         <button class="btn btn-danger" (click)="removeDireccion(i)"> <i class="far fa-trash-alt"></i></button></div><br>
                                 </div></div></div>
                             </form>     

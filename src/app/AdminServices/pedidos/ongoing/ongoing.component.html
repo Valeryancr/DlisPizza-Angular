@@ -1,25 +1,54 @@
-<div class="container" style="margin-top: 40px;"><br>
-    <h2>Pedidos</h2>
-    <br>
+<div class="container" style="margin-top: 40px">
+  <br />
+  <h2>Pedidos</h2>
+  <br />
   <div class="row">
     <ng-container *ngFor="let pedido of pedidos">
-    <div id="pedido" class="col-md-4" style="margin-bottom:20px" *ngIf="pedido.completed === false">
+      <div
+        id="pedido"
+        class="col-md-4"
+        style="margin-bottom: 20px"
+        *ngIf="pedido.completed === false"
+      >
         <div class="card text-left">
-            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                Pedido Nuevo <a class="text-white"><button class="btn btn-info btn-block" onclick="this.blur();" (click)="completeP(pedido);"> Completar <i class="fas fa-check-circle"></i> </button></a>
+          <div
+            class="card-header bg-dark text-white d-flex justify-content-between align-items-center"
+          >
+            Pedido Nuevo
+            <a class="text-white"
+              ><button
+                class="btn btn-info btn-block"
+                onclick="this.blur();"
+                (click)="completeP(pedido)"
+              >
+                Completar <i class="fas fa-check-circle"></i></button
+            ></a>
+          </div>
+          <div class="card-body">
+            <p>Fecha de entrega: {{ pedido.fecha }}</p>
+            <p></p>
+            <p>Direccion: {{ pedido.direccionEntrega }}</p>
+            <p></p>
+            <p>Monto total: {{ pedido.total | currency: "GTQ" }}</p>
+            <p></p>
+            <h6>Productos</h6>
+            <hr style="width: 100%" />
+            <div *ngFor="let producto of pedido.productospedidos">
+              <p>{{ producto.pnombre }}:</p>
+              <ul>
+                Cantidad:
+                {{
+                  producto.cantidad
+                }}
+                Monto:
+                {{
+                  producto.subtotal | currency: "GTQ"
+                }}
+              </ul>
             </div>
-            <div class="card-body">
-                <p>Fecha de entrega: {{pedido.fecha}}<p>
-                <p>Monto total: {{pedido.total | currency:'GTQ'}}<p>
-                    <h6>Productos</h6><hr style="width:100%">
-                    <div *ngFor="let producto of pedido.productospedidos">
-                        <p>{{producto.pnombre}}: </p>
-                        <ul>Cantidad: {{producto.cantidad}} Monto: {{producto.subtotal | currency:'GTQ'}}</ul>
-                    </div>
-            </div>
+          </div>
         </div>
-       </div>
+      </div>
     </ng-container>
-    
-    </div>
+  </div>
 </div>

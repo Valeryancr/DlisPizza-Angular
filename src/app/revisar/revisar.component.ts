@@ -16,6 +16,8 @@ export class RevisarComponent implements OnInit {
   };
   producto:any=[];
   user:any=[];
+  pruebaLugar = "";
+  valorOption = "";
  
   constructor(private proyectoService: ProyectopService,private route:Router) { }
 

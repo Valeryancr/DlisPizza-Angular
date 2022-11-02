@@ -2,10 +2,10 @@
     <a *ngIf="loginservice.isAdminLoggedIn()" routerLink="/admin-dashboard/productos" class="navbar-brand">D'liz Pizza</a>
     <a *ngIf="loginservice.isUserLoggedIn() && loginservice.isNotAdminLoggedIn()" routerLink="/home" class="navbar-brand">D'liz Pizza</a>
     <a *ngIf="loginservice.isNobodyLoggedIn()" routerLink="/"  class="navbar-brand">D'liz Pizza</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <a *ngIf="loginservice.isNotAdminLoggedIn()" class="nav-link" routerLink="/home"><i class="fas fa-home"></i> Inicio </a>
@@ -23,24 +23,23 @@
         <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/pedidos">Pedidos <i class="fas fa-shopping-bag"></i> </a>
       </li>
         <li class="nav-item">
-                <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/usuarios">Usuarios <i class="fas fa-user-circle"></i> </a>
+                <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/usuarios">Usuarios <i class="fas fa-user-circle"></i></a>
         </li>
         <li class="nav-item">
             <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/productos"> Productos <i class="fab fa-product-hunt"></i></a>
         </li>
-        <!-- Eduardo -->
         <li class="nav-item dropdown">
-          <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Reportes
+          <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Reportes 
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" routerLink="/admin-dashboard/Allpedidos">Historial de pedidos</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!-- <a class="dropdown-item" >Compras</a> -->
+            <a class="dropdown-item" routerLink="/admin-dashboard/Allpedidos">Historial de pedidos</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" >Usuarios</a> -->
+          </div>
         </li>
-        <!-- <li class="nav-item">
-          <a *ngIf="loginservice.isAdminLoggedIn()" class="nav-link" routerLink="/admin-dashboard/Allpedidos">Historial Pedidos <i class="fas fa-shopping-bag"></i> </a>
-        </li> -->
-        <li class="nav-item">
+          <li class="nav-item">
             <a *ngIf="loginservice.isUserLoggedIn()" class="nav-link" routerLink="/">Cerrar sesión</a>
           </li>
           <li class="nav-item">
